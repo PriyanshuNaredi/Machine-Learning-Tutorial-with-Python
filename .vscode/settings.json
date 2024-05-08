@@ -1,5 +1,8 @@
 {
     "cSpell.words": [
-        "argmax"
+        "argmax",
+        "logist",
+        "sess",
+        "softmax"
     ]
 }
