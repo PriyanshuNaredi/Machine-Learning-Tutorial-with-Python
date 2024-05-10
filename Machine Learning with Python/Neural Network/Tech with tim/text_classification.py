@@ -86,7 +86,7 @@ def review_encode(s):
 
 	return encoded
 
-with open("Machine Learning with Python/Neural Network/Tech with tim/test_250_words.txt", encoding="utf-8") as f:
+with open("Machine Learning with Python/Neural Network/Tech with tim/test.txt", encoding="utf-8") as f:
 	for line in f.readlines():
 		nline = line.replace(",", "").replace(".", "").replace("(", "").replace(")", "").replace(":", "").replace("\"","").strip().split(" ")
 		encode = review_encode(nline)
