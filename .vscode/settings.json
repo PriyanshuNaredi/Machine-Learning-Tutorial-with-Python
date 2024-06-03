@@ -3,6 +3,7 @@
         "argmax",
         "imdb",
         "logist",
+        "quandl",
         "sess",
         "softmax"
     ]
