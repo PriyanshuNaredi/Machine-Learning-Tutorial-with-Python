@@ -22,12 +22,13 @@ df = df[['Adj. Open','Adj. High','Adj. Low','Adj. Close','Adj. Volume']]
 df['HL_PCT'] =  (df['Adj. High'] - df['Adj. Close']) / df['Adj. Close'] * 100.0
 df['PCT_Change'] =  (df['Adj. Close'] - df['Adj. Open']) / df['Adj. Open'] * 100.0
 
+#           yes           no          no          no      <- affects change in price
 df = df[['Adj. Close', 'HL_PCT', 'PCT_Change', 'Adj. Volume']]
 
 forecast_col = 'Adj. Close'
 df.fillna(-99999, inplace= True)
 
-forecast_out = int(math.ceil(0.01*len(df)))
+forecast_out = int(math.ceil(0.1*len(df)))
 
 df['label'] = df[forecast_col].shift(-forecast_out) # this will shift the col in upwards direction 
 """
@@ -37,10 +38,10 @@ Date       Adj. Close    HL_PCT    PCT_Change  Adj. Volume  label
 """
 print(df.tail(35))
 
-X = np.array(df.drop(['label'], axis=1)) # X -> features
+X = np.array(df.drop(['label','Adj. Close'], axis=1)) # X -> features
 X = preprocessing.scale(X) # normalization of data
-X = X[:-forecast_out] # will exclude forecast_out 
-X_lately = X[-forecast_out:] # only consist of forecast_out elements
+X_lately = X[-forecast_out:] # only consist of forecast_out elements, last 10% of the data
+X = X[:-forecast_out] # will exclude forecast_out, 1st 90% of the data 
 
 
 df.dropna(inplace=True)
@@ -52,11 +53,11 @@ clf = LinearRegression(n_jobs= -1)
 clf.fit(X_train, y_train)
 accuracy = clf.score(X_test, y_test)
 
-with open('Linear_regression.pickle','wb') as f:
-    pickle.dump(clf,f)
+# with open('Linear_regression.pickle','wb') as f:
+#     pickle.dump(clf,f)
 
-pickle_in = open('Linear_regression.pickle','rb')
-clf = pickle.loads(pickle_in)
+# pickle_in = open('Linear_regression.pickle','rb')
+# clf = pickle.loads(pickle_in)
 
 forecast_set = clf.predict(X_lately)
 

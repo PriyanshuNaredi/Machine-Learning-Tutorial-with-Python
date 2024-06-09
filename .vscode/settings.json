@@ -2,11 +2,17 @@
     "cSpell.words": [
         "argmax",
         "coeff",
+        "dropna",
         "dtype",
+        "fillna",
+        "ggplot",
+        "iloc",
         "imdb",
         "logist",
         "quandl",
         "sess",
-        "softmax"
+        "softmax",
+        "xlabel",
+        "ylabel"
     ]
 }
