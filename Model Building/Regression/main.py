@@ -18,14 +18,27 @@ def best_fit_slope_and_intercepts(xs,ys):
     return m, b
 
 
-m,b = best_fit_slope_and_intercepts(xs,ys)
+def squared_error(ys_org, ys_line):
+    return sum((ys_line - ys_org) **2 )  
 
-print(m,b)
+def coeff_of_determination(ys_org, ys_line):
+    y_mean_line = [mean(ys_org) for y in ys_org]
+    print(f"Y mean line - {y_mean_line}")
+    squared_error_regr = squared_error(ys_org=ys_org, ys_line=ys_line)
+    squared_error_regr_y_mean = squared_error(ys_org=ys_org, ys_line=y_mean_line)
+    return 1 - (squared_error_regr / squared_error_regr_y_mean)
+
+
+m,b = best_fit_slope_and_intercepts(xs,ys)
+print(f"mean:{m}, y-intercept(b):{b}")
 
 regression_line = [(m*x)+b for x in xs]
 
 predict_x = 8
 predict_y = (m*predict_x) + b
+
+r_sq = coeff_of_determination(ys, regression_line)
+print(r_sq)
 
 plt.scatter(xs,ys)
 plt.scatter(predict_x,predict_y,color='g')
