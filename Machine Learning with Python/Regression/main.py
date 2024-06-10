@@ -31,10 +31,10 @@ df.fillna(-99999, inplace= True)
 forecast_out = int(math.ceil(0.1*len(df)))
 
 df['label'] = df[forecast_col].shift(-forecast_out) # this will shift the col in upwards direction 
-"""
+""" As per 1% or 0.01 learning rate
 Date       Adj. Close    HL_PCT    PCT_Change  Adj. Volume  label
 2004-08-19   50.322842  3.712563    0.324968   44659000.0  *69.078238
-2004-10-08   *69.078238  1.415814   -0.720825   11069500.0  90.805307
+2004-10-08  *69.078238  1.415814    -0.720825   11069500.0  90.805307
 """
 print(df.tail(35))
 
