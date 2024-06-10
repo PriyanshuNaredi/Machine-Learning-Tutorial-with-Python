@@ -2,16 +2,20 @@
     "cSpell.words": [
         "argmax",
         "coeff",
+        "dataframes",
         "dropna",
         "dtype",
         "fillna",
         "ggplot",
         "iloc",
         "imdb",
+        "isna",
         "logist",
         "quandl",
         "sess",
         "softmax",
+        "ucimlrepo",
+        "ucirepo",
         "xlabel",
         "ylabel"
     ]
