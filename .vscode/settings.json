@@ -1,6 +1,7 @@
 {
     "cSpell.words": [
         "argmax",
+        "astype",
         "coeff",
         "dataframes",
         "dropna",
