@@ -11,6 +11,7 @@
         "imdb",
         "isna",
         "KNN",
+        "linalg",
         "logist",
         "quandl",
         "sess",
