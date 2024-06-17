@@ -6,6 +6,7 @@
         "dataframes",
         "dropna",
         "dtype",
+        "featureset",
         "fillna",
         "ggplot",
         "iloc",
