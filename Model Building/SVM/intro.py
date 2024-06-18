@@ -49,7 +49,37 @@ class Support_vector_machine:
             w = np.array([latest_optimum, latest_optimum])
             optimized = False  # Convex problem, finding minima is aim
             while not optimized:
-                pass
+                for b in np.arange(-1 *(self.max_feature_value*b_range_multiple), 
+                                self.max_feature_value*b_range_multiple, step=step*b_multiple):
+                    for transformation in transforms:
+                        w_t = w*transformation
+                        found_option = True
+                        # weakest link, SMO tries to fix it
+                        # yi(xi . w + b) >= 1
+                        for i in self.data:
+                            for xi in self.data[i]:
+                                yi = i
+                                if not yi*(np.dot(w_t,xi)+b) >= 1:
+                                    found_option = False
+                    if found_option:
+                        opt_dict[np.linalg.norm(w_t)] = [w_t,b]
+                if w[0] < 0:
+                    optimized = True
+                    print('optimized a step')
+                else:
+                    # w = [5,5]
+                    w = w - step
+            norms = sorted([n for n in opt_dict])
+            opt_choice = opt_dict[norms[0]]
+            # |w| = [w,b]
+            self.w = opt_choice[0]
+            self.b = opt_choice[1]
+            latest_optimum = opt_choice[0][0] + step*2
+            
+            
+            
+
+
 
     def predict(self, features):
         """sign(x.w+b)"""
