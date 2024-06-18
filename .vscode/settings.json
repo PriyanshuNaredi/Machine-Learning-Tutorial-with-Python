@@ -5,6 +5,7 @@
         "astype",
         "coeff",
         "dataframes",
+        "datarange",
         "dropna",
         "dtype",
         "featureset",
