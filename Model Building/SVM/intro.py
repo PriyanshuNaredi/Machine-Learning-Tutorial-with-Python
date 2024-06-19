@@ -80,8 +80,7 @@ class Support_vector_machine:
         """sign(x.w+b)"""
         classification = np.sign(np.dot(np.array(features), self.w) + self.b)
         if classification != 0 and self.visualization:
-            self.ax.scatter(features[0], features[1], s=200,
-                            marker='*', colo=self.color[classification])
+            self.ax.scatter(features[0], features[1], s=200, marker='*', colo=self.color[classification])
 
         return classification
 
