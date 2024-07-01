@@ -17,6 +17,8 @@
         "KNN",
         "linalg",
         "logist",
+        "Mathieu",
+        "pylab",
         "quandl",
         "sess",
         "softmax",
