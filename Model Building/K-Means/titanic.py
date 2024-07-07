@@ -64,6 +64,7 @@ class K_Means:
         return classification
 
 
+
 df = pd.read_excel("Machine Learning with Python/K-Means/titanic.xls")
 df.drop(['body','name'], axis=1, inplace=True)
 print(df.head())

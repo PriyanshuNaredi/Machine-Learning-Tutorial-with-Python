@@ -43,6 +43,7 @@ class K_Means():
                     featureset-self.centroid[centroid]) for centroid in self.centroid]
                 classification = distances.index(min(distances))
                 self.classifications[classification].append(featureset)
+                print(distances.index(min(distances)))
             prev_centroids = dict(self.centroid)
             for classification in self.classifications:
                 self.centroid[classification] = np.average(
