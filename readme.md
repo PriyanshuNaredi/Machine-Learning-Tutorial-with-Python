@@ -31,28 +31,6 @@ This repository contains various implementations of fundamental machine learning
 2. 📖 [ML Study Guide](https://github.com/AssemblyAI-Examples/ML-Study-Guide)  
    - A comprehensive study guide covering essential ML concepts.  
 
-## 🚀 Getting Started  
-
-### ✅ Prerequisites  
-Make sure you have the following installed:  
-- Python 3.x  
-- NumPy, Pandas, Matplotlib  
-- Scikit-learn  
-
-### 🔧 Installation  
-
-Clone this repository:  
-```bash
-git clone https://github.com/yourusername/your-repo-name.git
-cd your-repo-name
-pip install -r requirements.txt  # If available
-```
-
-## 🛠 Usage  
-
-- Navigate to the relevant folders for different implementations.  
-- Run Jupyter notebooks or Python scripts to experiment with algorithms.  
-
 ## 🤝 Contributing  
 
 Feel free to contribute by:  
